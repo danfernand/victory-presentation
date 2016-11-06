@@ -1,0 +1,25 @@
+class Bar extends Component {
+  componentDidMount() {
+    this.bootstrap()
+  }
+  bootstrap() {
+    const svg = d3.select("svg")
+    const margin = { top: 20, right: 20, bottom: 30, left: 40 }
+    const width = +svg.attr("width") - margin.left - margin.right
+    const height = +svg.attr("height") - margin.top - margin.bottom
+    const g = this.mainGroup(svg, margin)
+    const x = this.xScale(width)
+    const y = this.yScale(height)
+    this.draw(data, g, x, y, height)
+  }
+  xScale(width) {
+    return d3.scaleBand().rangeRound([0, width]).padding(0.1)
+  }
+  yScale(height) {
+    return d3.scaleLinear().rangeRound([height, 0])
+  }
+  mainGroup(svg, margin) {
+    return svg.append("g")
+      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+  }
+  ...

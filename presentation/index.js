@@ -22,6 +22,10 @@ import {
   Text
 } from "spectacle";
 
+import D3Bar from "../assets/d3/bar"
+import ReactHighchartsBar from "../assets/react-highcharts/bar"
+import VictoryBar from "../assets/victory/bar"
+
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
 
@@ -37,8 +41,9 @@ require("spectacle/lib/themes/default/index.css");
 
 
 const images = {
+  yay: require("../assets/yay.jpg"),
+  impressive: require("../assets/impressive.png"),
   city: require("../assets/city.jpg"),
-  kat: require("../assets/kat.png"),
   logo: require("../assets/formidable-logo.svg"),
   markdown: require("../assets/markdown.png")
 };
@@ -46,7 +51,7 @@ const images = {
 preloader(images);
 
 const theme = createTheme({
-  primary: "#ff4081"
+  primary: "#4fb7f5"
 });
 
 export default class Presentation extends React.Component {
@@ -61,20 +66,135 @@ export default class Presentation extends React.Component {
             <Heading size={1} fit caps>
               Composable, testable and multi-platform Vizualizations
             </Heading>
-            <Heading size={1} fit caps textColor="black">
-              Where You Can Write Your Decks In JSX
-            </Heading>
-            <Link href="https://github.com/FormidableLabs/spectacle">
+            <Link href="https://github.com/danfernand/victory-presentation">
               <Text bold caps textColor="tertiary">View on Github</Text>
             </Link>
-            <Text textSize="1.5em" margin="20px 0px 0px" bold>Hit Your Right Arrow To Begin!</Text>
+          </Slide>
+          <Slide transition={["zoom"]} bgColor="primary">
+            <Heading size={2} fit={ false } caps lineHeight={1} textColor="black">
+              About me
+            </Heading>
+            <Text bold caps textColor="tertiary" lineHeight={1}>
+              Senior Front-end Engineer at <Link href="http://help.com">Help.com</Link>
+            </Text>
+            <Text bold caps textColor="tertiary" lineHeight={2}>
+              Twitter <Link href="https://twitter.com/danielHeartsJS">@danielHeartsJS</Link>
+            </Text>
+            <Text bold caps textColor="tertiary" lineHeight={1}>
+              This is my first presentation!
+            </Text>
+          </Slide>
+          <Slide transition={["zoom", "slide"]} bgColor="primary">
+            <Heading size={1} fit caps lineHeight={1} textColor="black">
+              Before Victory
+            </Heading>
+            <List>
+              <Appear><ListItem>D3 and React</ListItem></Appear>
+              <Appear><ListItem>Highcharts and React</ListItem></Appear>
+              <Appear><ListItem>Chart JS</ListItem></Appear>
+              <Appear><ListItem>Many many others</ListItem></Appear>
+            </List>
+          </Slide>
+          <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
+            <Heading size={1} fit caps lineHeight={1} textColor="black">
+              Traditional D3 in React rendering
+            </Heading>
+            <CodePane
+              lang="js"
+              source={require("raw!../assets/d3/bar.example")}
+              margin="20px auto"
+            />
+          </Slide>
+          <Slide transition={["slide"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
+            <CodePane
+              lang="js"
+              source={require("raw!../assets/d3/bar.cont.example")}
+              margin="20px auto"
+            />
+          </Slide>
+          <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
+            <Text bold caps textColor="tertiary" lineHeight={1}>
+              Result!
+            </Text>
+            <D3Bar />
+          </Slide>
+          <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
+            <Heading size={1} fit caps lineHeight={1} textColor="black">
+              Not too bad, but...
+            </Heading>
+            <List>
+              <Appear><ListItem>High learning curve for D3</ListItem></Appear>
+              <Appear><ListItem>After onComponentDidMount D3 runs the show</ListItem></Appear>
+              <Appear><ListItem>Testing gets a little odd</ListItem></Appear>
+              <Appear><ListItem>Very little re-usable parts from chart to chart</ListItem></Appear>
+            </List>
+          </Slide>
+          <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
+            <Heading size={1} fit={ true } caps lineHeight={1} textColor="black">
+              Highcharts and React (using react-highcharts)
+            </Heading>
+            <CodePane
+              lang="js"
+              source={require("raw!../assets/react-highcharts/bar.example")}
+              margin="20px auto"
+            />
+          </Slide>
+          <Slide>
+            <Text bold caps textColor="tertiary" lineHeight={1}>
+              Result!
+            </Text>
+            <ReactHighchartsBar />
+          </Slide>
+          <Slide transition={["slide", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
+            <Heading size={1} fit caps lineHeight={1} textColor="black">
+              That was easy, but...
+            </Heading>
+            <List>
+              <Appear><ListItem>Not free :(</ListItem></Appear>
+              <Appear><ListItem>Not very composable</ListItem></Appear>
+              <Appear><ListItem>Not open source</ListItem></Appear>
+              <Appear><ListItem>What about native?</ListItem></Appear>
+            </List>
           </Slide>
           <Slide transition={["slide"]} bgColor="black" notes="You can even put notes on your slide. How awesome is that?">
-            <Image src={images.kat.replace("/", "")} margin="0px auto 40px" height="293px"/>
+            <Image src={images.yay.replace("/", "")} margin="0px auto 40px" height="293px"/>
             <Heading size={2} caps fit textColor="primary" textFont="primary">
-              Wait what?
+              Time for the Victory way!
             </Heading>
           </Slide>
+          <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
+            <Heading size={1} fit={ false } caps lineHeight={1} textColor="black">
+              Victory JS
+            </Heading>
+            <CodePane
+              lang="js"
+              source={require("raw!../assets/victory/bar.example")}
+              margin="20px auto"
+            />
+          </Slide>
+          <Slide>
+            <Text bold caps textColor="tertiary" lineHeight={1}>
+              Result!
+            </Text>
+            <VictoryBar />
+          </Slide>
+          <Slide transition={["slide"]} bgColor="black" notes="You can even put notes on your slide. How awesome is that?">
+            <Image src={images.impressive.replace("/", "")} margin="0px auto 40px" height="293px"/>
+          </Slide>
+          <Slide transition={["fade"]} bgColor="primary">
+            <Heading size={1} fit={ false } caps lineHeight={1} textColor="black">
+              But why Victory?
+            </Heading>
+            <List>
+              <Appear><ListItem>Composable</ListItem></Appear>
+              <Appear><ListItem>Open Source</ListItem></Appear>
+              <Appear><ListItem>Testable</ListItem></Appear>
+              <Appear><ListItem>Compatible (can render svg and victory components side-by-side)</ListItem></Appear>
+              <Appear><ListItem>Victory Native!</ListItem></Appear>
+              <Appear><ListItem>Docs are great and only getting better</ListItem></Appear>
+            </List>
+          </Slide>
+
           <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
             <CodePane
               lang="jsx"

@@ -13,10 +13,13 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "d3": "^4.3.0",
     "normalize.css": "3.0.3",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
-    "spectacle": "^1.0.0"
+    "react-highcharts": "^11.0.0",
+    "spectacle": "^1.0.0",
+    "victory": "^0.13.3"
   },
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",
