@@ -1,0 +1,28 @@
+exports[`common.visualizations.doughnut renders correctly with all props 1`] = `
+<VictoryPie
+  colorScale={
+    Array ["red", "white", "blue"]
+  }
+  data={Array []}
+  events={
+    Array [
+      Object {
+        "eventHandlers": Object {
+          "onClick": [Function],
+          "onMouseOut": [Function],
+          "onMouseOver": [Function],
+        },
+        "target": "data",
+      },
+    ]
+  }
+  height={90}
+  innerRadius={[Function]}
+  labelRadius={130}
+  labels={Array []}
+  padding={50}
+  standalone={false}
+  width={200}
+  x="xValue"
+  y="yValue" />
+`;

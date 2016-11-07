@@ -1,0 +1,22 @@
+const LineAndScatter = () => {
+  return (
+    <VictoryChart
+      padding={ 80 }
+      domainPadding={ { x: 20 } }
+    >
+      <VictoryScatter
+        data={ scatterData }
+      />
+      <VictoryGroup data={ lineData }>
+        <VictoryLine
+          style={ {
+            data: { stroke: 'tomato' }
+          } }
+        />
+        <VictoryVoronoiTooltip
+          labels={(d) => `x: ${d.x} \n y: ${d.y}`}
+        />
+      </VictoryGroup>
+    </VictoryChart>
+  )
+}
